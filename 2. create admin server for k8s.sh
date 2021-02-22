@@ -76,4 +76,4 @@ az vm extension set \
   --name CustomScript \
   --vm-name vm-k8s-admin-server \
   --resource-group RG-k8s-cluster \
-  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx && apt-get -y install ansible && echo k8s: admin-server > /var/www/html/index.html" && git clone https://github.com/aleks-golubyatnikov/k8s-cluster.git /home/golubyatnikov/}'
+  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx && apt-get -y install ansible && echo k8s: admin-server > /var/www/html/index.html" && git clone https://github.com/aleks-golubyatnikov/k8s-cluster.git /home/golubyatnikov/ && find /home/golubyatnikov/k8s-cluster -type f -exec chmod 0755 {} \}'
