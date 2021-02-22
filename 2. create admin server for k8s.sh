@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Azure CLI 
 # Script for creating virtual machines for the k8s cluster in the configuration:
@@ -62,7 +62,7 @@ az network nic create \
 
 # Deploy admin server
 az vm create \
-  --resouclearrce-group RG-k8s-cluster \
+  --resource-group RG-k8s-cluster \
   --name vm-k8s-admin-server \
   --admin-username golubyatnikov \
   --admin-password Upgrade-2035UP \
@@ -76,4 +76,12 @@ az vm extension set \
   --name CustomScript \
   --vm-name vm-k8s-admin-server \
   --resource-group RG-k8s-cluster \
-  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx && apt-get -y install ansible && apt-get -y install sshpass && echo k8s: admin-server > /var/www/html/index.html && mkdir /home/init-cluster && chmod 0755 /home/init-cluster && git clone https://github.com/aleks-golubyatnikov/k8s-cluster.git /home/init-cluster && chmod 0755 /home/init-cluster/run.sh && bash /home/init-cluster/run.sh"}'
+  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install nginx && apt-get -y install ansible && echo k8s: admin-server > /var/www/html/index.html && mkdir /home/init-cluster && chmod 0755 /home/init-cluster && git clone https://github.com/aleks-golubyatnikov/k8s-cluster.git /home/init-cluster && chmod 0755 /home/init-cluster/run.sh && cd ~ && cd ../ && bash /home/init-cluster/run.sh"}'
+
+
+
+
+
+
+
+
