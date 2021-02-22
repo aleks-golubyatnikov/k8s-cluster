@@ -1,4 +1,3 @@
-!#/bin/sh
-cd /home/init-cluster/k8s-cluster/ansible-playbook
-ansible-playbook -i hosts kube-dependencies.yml
-ansible-playbook -i hosts master.yml
+#!/bin/bash
+ansible-playbook -i init-cluster/ansible-playbook/hosts init-cluster/ansible-playbook/kube-dependencies.yml
+ansible-playbook -i init-cluster/ansible-playbook/hosts init-cluster/ansible-playbook/master.yml
