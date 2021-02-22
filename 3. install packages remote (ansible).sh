@@ -9,4 +9,7 @@
 #
 # 2: Configure the master host
 # ansible-playbook -i hosts master.yml -k
+#
+#
+# 3: You might run 'bash run.sh' to perform actions in item 1-2
 
