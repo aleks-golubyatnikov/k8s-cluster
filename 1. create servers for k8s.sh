@@ -62,6 +62,19 @@ az network nsg rule create \
   --access allow \
   --priority 100
 
+az network nsg rule create \
+  --resource-group RG-k8s-cluster \
+  --name NSG-MASTER-SERVER-01-ALLOW-HTTP-8080 \
+  --nsg-name NSG-MASTER-SERVER-01 \
+  --protocol tcp \
+  --direction inbound \
+  --source-address-prefix '*' \
+  --source-port-range '*' \
+  --destination-address-prefix 'VirtualNetwork' \
+  --destination-port-range 8080 \
+  --access allow \
+  --priority 210
+
 az network public-ip create \
   --resource-group RG-k8s-cluster \
   --name PIP-MASTER-01 \
@@ -128,6 +141,19 @@ az network nsg rule create \
   --access allow \
   --priority 100
 
+az network nsg rule create \
+  --resource-group RG-k8s-cluster \
+  --name NSG-WORKER-SERVER-01-ALLOW-HTTP-8080 \
+  --nsg-name NSG-WORKER-SERVER-01 \
+  --protocol tcp \
+  --direction inbound \
+  --source-address-prefix '*' \
+  --source-port-range '*' \
+  --destination-address-prefix 'VirtualNetwork' \
+  --destination-port-range 8080 \
+  --access allow \
+  --priority 210
+  
 az network public-ip create \
   --resource-group RG-k8s-cluster \
   --name PIP-WORKER-01 \
@@ -193,6 +219,19 @@ az network nsg rule create \
   --destination-port-range 22 \
   --access allow \
   --priority 100
+
+  az network nsg rule create \
+  --resource-group RG-k8s-cluster \
+  --name NSG-WORKER-SERVER-02-ALLOW-HTTP-8080 \
+  --nsg-name NSG-WORKER-SERVER-02 \
+  --protocol tcp \
+  --direction inbound \
+  --source-address-prefix '*' \
+  --source-port-range '*' \
+  --destination-address-prefix 'VirtualNetwork' \
+  --destination-port-range 8080 \
+  --access allow \
+  --priority 210
 
 az network public-ip create \
   --resource-group RG-k8s-cluster \

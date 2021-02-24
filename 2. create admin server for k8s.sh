@@ -45,6 +45,19 @@ az network nsg rule create \
   --access allow \
   --priority 100
 
+az network nsg rule create \
+  --resource-group RG-k8s-cluster \
+  --name NSG-ADMIN-SERVER-ALLOW-HTTP-8080 \
+  --nsg-name NSG-ADMIN-SERVER \
+  --protocol tcp \
+  --direction inbound \
+  --source-address-prefix '*' \
+  --source-port-range '*' \
+  --destination-address-prefix 'VirtualNetwork' \
+  --destination-port-range 8080 \
+  --access allow \
+  --priority 210
+
 az network public-ip create \
   --resource-group RG-k8s-cluster \
   --name PIP-ADMIN-SERVER \
