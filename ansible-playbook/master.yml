@@ -2,18 +2,21 @@
   become: yes
   tasks:
     - name: enable docker service
-      shell: systemctl enable docker.service
+      service: 
+         name: docker.service
+         enabled: yes 
       
     - name: initialize the cluster
       shell: kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors all >> cluster_initialized.txt
       args:
-        chdir: $HOME
+        chdir: /home/ubuntu
         creates: cluster_initialized.txt
     
     - name: set KUBECONFIG
-      shell: export KUBECONFIG=/etc/kubernetes/admin.conf
+      shell: export KUBECONFIG=/etc/kubernetes/admin.conf && echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> kubeconfig.log
       args:
-        chdir: $HOME
+        chdir: /home/ubuntu
+        creates: kubeconfig.log
 
     - name: create .kube directory
       become: yes
@@ -33,7 +36,7 @@
     - name: install Pod network
       become: yes
       become_user: ubuntu
-      shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml >> pod_network_setup.txt
+      shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml >> pod_network_setup.log
       args:
-        chdir: $HOME
-        creates: pod_network_setup.txt
+        chdir: /home/ubuntu
+        creates: pod_network_setup.log
