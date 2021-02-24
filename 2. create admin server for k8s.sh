@@ -89,4 +89,4 @@ az vm extension set \
   --name CustomScript \
   --vm-name vm-k8s-admin-server \
   --resource-group RG-k8s-cluster \
-  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install apache2 && apt-get -y install ansible && DEBIAN_FRONTEND=noninteractive apt-get -y -q install linux-headers-4.15.0-135 && DEBIAN_FRONTEND=noninteractive apt-get -y -q install sshpass && echo k8s: admin-server > /var/www/html/index.html && mkdir /home/init-cluster && chmod 0755 /home/init-cluster && git clone https://github.com/aleks-golubyatnikov/k8s-cluster.git /home/init-cluster && chmod 0755 /home/init-cluster/run.sh && cd /home/init-cluster && bash run.sh"}'
+  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install apache2 && apt-get -y install ansible && echo k8s: admin-server > /var/www/html/index.html && mkdir /home/init-cluster && chmod 0755 /home/init-cluster && git clone https://github.com/aleks-golubyatnikov/k8s-cluster.git /home/init-cluster && chmod 0755 /home/init-cluster/run.sh && cd /home/init-cluster && bash run.sh"}'

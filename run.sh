@@ -1,4 +1,5 @@
 #!/bin/bash
+apt-get -y install sshpass
 ansible-playbook -i ./ansible-playbook/hosts ./ansible-playbook/initial.yml >> initial.log
 ansible-playbook -i ./ansible-playbook/hosts ./ansible-playbook/kube-dependencies.yml >> instalation.log
 ansible-playbook -i ./ansible-playbook/hosts ./ansible-playbook/master.yml >> configure-master.log
