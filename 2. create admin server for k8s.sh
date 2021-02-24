@@ -68,7 +68,7 @@ az vm create \
   --admin-password Upgrade-2035UP \
   --image UbuntuLTS \
   --nics admin-server-NIC \
-  --size Standard_B1s \
+  --size Standard_B1ms \
    
 az vm extension set \
   --publisher Microsoft.Azure.Extensions \
