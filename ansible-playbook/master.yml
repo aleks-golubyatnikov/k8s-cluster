@@ -7,17 +7,11 @@
          enabled: yes 
       
     - name: initialize the cluster
-      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors all >> cluster_initialized.txt
+      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors all >> cluster_initialized.log
       args:
         chdir: /home/ubuntu
-        creates: cluster_initialized.txt
+        creates: cluster_initialized.log
     
-    - name: set KUBECONFIG
-      shell: export KUBECONFIG=/etc/kubernetes/admin.conf && echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> kubeconfig.log
-      args:
-        chdir: /home/ubuntu
-        creates: kubeconfig.log
-
     - name: create .kube directory
       become: yes
       become_user: ubuntu
@@ -40,3 +34,10 @@
       args:
         chdir: /home/ubuntu
         creates: pod_network_setup.log
+
+    - name: set KUBECONFIG
+      shell: export KUBECONFIG=/etc/kubernetes/admin.conf && echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> kubeconfig.log
+      args:
+        chdir: /home/ubuntu
+        creates: kubeconfig.log
+    
