@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
     - name: test cluster
-      shell: kubectl get nodes > k8s-cluster-info.log
+      shell: kubectl get nodes >> k8s-cluster-info.log
       args:
         chdir: /home/ubuntu
         creates: k8s-cluster-info.log
