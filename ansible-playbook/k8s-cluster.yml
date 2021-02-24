@@ -5,5 +5,5 @@
     - name: test cluster
       shell: kubectl get nodes > k8s-cluster-info.log
       args:
-        chdir: /home/init-cluster
+        chdir: /home/ubuntu
         creates: k8s-cluster-info.log
