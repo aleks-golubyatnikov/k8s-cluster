@@ -85,7 +85,7 @@ az vm create \
   --admin-password Upgrade-2035UP \
   --image UbuntuLTS \
   --nics master-01-NIC \
-  --size Standard_B1s  
+  --size Standard_B2s  
    
 az vm extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -151,7 +151,7 @@ az vm create \
   --admin-password Upgrade-2035UP \
   --image UbuntuLTS \
   --nics worker-01-NIC \
-  --size Standard_B1s \
+  --size Standard_B2s \
    
 az vm extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -217,7 +217,7 @@ az vm create \
   --admin-password Upgrade-2035UP \
   --image UbuntuLTS \
   --nics worker-02-NIC \
-  --size Standard_B1s \
+  --size Standard_B2s \
    
 az vm extension set \
   --publisher Microsoft.Azure.Extensions \

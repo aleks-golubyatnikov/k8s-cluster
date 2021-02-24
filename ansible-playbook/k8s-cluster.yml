@@ -1,0 +1,9 @@
+- hosts: master
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: test cluster
+      shell: kubectl get nodes > k8s-cluster-info.log
+      args:
+        chdir: /home/init-cluster
+        creates: k8s-cluster-info.log
