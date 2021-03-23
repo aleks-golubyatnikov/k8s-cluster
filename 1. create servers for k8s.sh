@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Azure CLI only! 
+# Azure CLI only!!! 
 # Script for creating virtual machines for the k8s cluster in the configuration:
 #  --Hardware requirements:
 #    - 2x CPU;
